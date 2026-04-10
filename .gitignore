@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+.turbo
+.mf
+.__mf__temp
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example

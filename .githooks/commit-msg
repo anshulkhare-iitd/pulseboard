@@ -1,0 +1,8 @@
+#!/bin/sh
+# Remove IDE-injected trailers (e.g. Cursor) so messages stay repository-owned.
+set -e
+msg_file="${1:?missing commit message path}"
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+grep -v '^Made-with: Cursor$' "$msg_file" >"$tmp" || true
+mv "$tmp" "$msg_file"
