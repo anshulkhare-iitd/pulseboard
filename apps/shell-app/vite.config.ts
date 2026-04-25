@@ -13,6 +13,7 @@ export default defineConfig({
     tailwindcss(),
     federation({
       name: 'shellApp',
+      filename: 'remoteEntry.js',
       remotes: {
         mfeOverview: {
           name: 'mfeOverview',
