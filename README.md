@@ -108,3 +108,44 @@ Run shell and each MFE on:
 - Users: `http://localhost:4102`
 - Reports: `http://localhost:4103`
 - Settings: `http://localhost:4104`
+
+## Deploying to Vercel
+
+Deploy as 5 separate Vercel projects (one per app):
+- `apps/shell-app`
+- `apps/mfe-overview`
+- `apps/mfe-users`
+- `apps/mfe-reports`
+- `apps/mfe-settings`
+
+For each Vercel project:
+1. Set the root directory to the app folder (for example `apps/mfe-overview`).
+2. Keep the framework preset as `Vite`.
+3. Use this build command:
+   - `pnpm --filter <app-name> build`
+4. Use this output directory:
+   - `dist`
+
+Suggested build commands:
+- Shell: `pnpm --filter shell-app build`
+- Overview: `pnpm --filter mfe-overview build`
+- Users: `pnpm --filter mfe-users build`
+- Reports: `pnpm --filter mfe-reports build`
+- Settings: `pnpm --filter mfe-settings build`
+
+### Shell environment variables
+
+The shell app loads remote MFEs from environment variables (with localhost fallbacks for local dev). In the `shell-app` Vercel project, set:
+
+- `VITE_MFE_OVERVIEW_REMOTE_ENTRY=https://<overview-domain>/remoteEntry.js`
+- `VITE_MFE_USERS_REMOTE_ENTRY=https://<users-domain>/remoteEntry.js`
+- `VITE_MFE_REPORTS_REMOTE_ENTRY=https://<reports-domain>/remoteEntry.js`
+- `VITE_MFE_SETTINGS_REMOTE_ENTRY=https://<settings-domain>/remoteEntry.js`
+
+An example template is available at `apps/shell-app/.env.example`.
+
+### Demo flow
+
+- Share only the `shell-app` URL for demos.
+- Keep all 4 MFEs deployed and reachable at their `remoteEntry.js` URLs.
+- Shell handles routing and lazy loading of each remote module.
