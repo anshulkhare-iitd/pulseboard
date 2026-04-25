@@ -1,4 +1,4 @@
-import { SettingsModule } from "./Module";
+import SettingsModule from "./Module";
 
 export default function App() {
   return <SettingsModule />;

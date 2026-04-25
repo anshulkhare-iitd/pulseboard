@@ -14,10 +14,26 @@ export default defineConfig({
     federation({
       name: 'shellApp',
       remotes: {
-        mfeOverview: remoteEntry('VITE_MFE_OVERVIEW_REMOTE_ENTRY', 'http://localhost:4101/remoteEntry.js'),
-        mfeUsers: remoteEntry('VITE_MFE_USERS_REMOTE_ENTRY', 'http://localhost:4102/remoteEntry.js'),
-        mfeReports: remoteEntry('VITE_MFE_REPORTS_REMOTE_ENTRY', 'http://localhost:4103/remoteEntry.js'),
-        mfeSettings: remoteEntry('VITE_MFE_SETTINGS_REMOTE_ENTRY', 'http://localhost:4104/remoteEntry.js'),
+        mfeOverview: {
+          name: 'mfeOverview',
+          type: 'module',
+          entry: remoteEntry('VITE_MFE_OVERVIEW_REMOTE_ENTRY', 'http://localhost:4101/remoteEntry.js'),
+        },
+        mfeUsers: {
+          name: 'mfeUsers',
+          type: 'module',
+          entry: remoteEntry('VITE_MFE_USERS_REMOTE_ENTRY', 'http://localhost:4102/remoteEntry.js'),
+        },
+        mfeReports: {
+          name: 'mfeReports',
+          type: 'module',
+          entry: remoteEntry('VITE_MFE_REPORTS_REMOTE_ENTRY', 'http://localhost:4103/remoteEntry.js'),
+        },
+        mfeSettings: {
+          name: 'mfeSettings',
+          type: 'module',
+          entry: remoteEntry('VITE_MFE_SETTINGS_REMOTE_ENTRY', 'http://localhost:4104/remoteEntry.js'),
+        },
       },
       shared: ['react', 'react-dom', '@pulseboard/shared-core', '@pulseboard/shared-ui'],
       dts: false,

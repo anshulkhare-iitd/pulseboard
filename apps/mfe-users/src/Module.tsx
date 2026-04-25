@@ -9,7 +9,7 @@ const initialUsers: User[] = [
   { id: "u3", name: "Rina Shaw", email: "rina@acme.com", role: "Viewer", active: false },
 ];
 
-export function UsersModule() {
+export default function UsersModule() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [page, setPage] = useState(1);

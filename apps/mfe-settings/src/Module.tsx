@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Badge, Button, Card } from "@pulseboard/shared-ui";
 
-export function SettingsModule() {
+export default function SettingsModule() {
   const [theme, setTheme] = useState("system");
   const audit = [
     "Billing plan changed to Enterprise",

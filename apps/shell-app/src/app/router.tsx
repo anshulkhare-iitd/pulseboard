@@ -12,18 +12,10 @@ import { LoginPage } from "../features/auth/LoginPage";
 import { AppShellLayout } from "../components/AppShellLayout";
 import { useSessionStore } from "../store/sessionStore";
 
-const OverviewPage = React.lazy(() =>
-  import("mfeOverview/Module").then((mod) => ({ default: mod.OverviewModule })),
-);
-const UsersPage = React.lazy(() =>
-  import("mfeUsers/Module").then((mod) => ({ default: mod.UsersModule })),
-);
-const ReportsPage = React.lazy(() =>
-  import("mfeReports/Module").then((mod) => ({ default: mod.ReportsModule })),
-);
-const SettingsPage = React.lazy(() =>
-  import("mfeSettings/Module").then((mod) => ({ default: mod.SettingsModule })),
-);
+const OverviewPage = React.lazy(() => import("mfeOverview/Module"));
+const UsersPage = React.lazy(() => import("mfeUsers/Module"));
+const ReportsPage = React.lazy(() => import("mfeReports/Module"));
+const SettingsPage = React.lazy(() => import("mfeSettings/Module"));
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -42,7 +34,6 @@ const loginRoute = createRoute({
 const appRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "app",
-  path: "/",
   beforeLoad: () => {
     if (!useSessionStore.getState().session) {
       throw redirect({ to: "/login" });

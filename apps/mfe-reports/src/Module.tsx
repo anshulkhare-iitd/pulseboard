@@ -7,7 +7,7 @@ const allReports = [
   { id: "r3", name: "Churn analysis", status: "Ready", period: "Quarter to date" },
 ];
 
-export function ReportsModule() {
+export default function ReportsModule() {
   const [query, setQuery] = useState("");
   const [savedFilter, setSavedFilter] = useState("all");
   const reports = useMemo(() => {
