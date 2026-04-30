@@ -3,6 +3,59 @@
 ## Project overview
 PulseBoard is a React + TypeScript micro frontend dashboard that models how multi-tenant SaaS products are built in production. The shell app owns auth, routing, and workspace context while domain MFEs (overview, users, reports, settings) are independently deployable.
 
+## Live demo (non-technical walkthrough)
+
+Use this section when sharing your portfolio so anyone can quickly explore the product without setup.
+
+### Open the live project
+
+- Main app (start here): [PulseBoard Live Demo](https://pulseboard-shell-app.vercel.app/overview)
+
+If the page takes a few seconds to load, wait briefly. The dashboard loads feature modules in the background.
+
+### Demo credentials (dummy login)
+
+Use these demo credentials on the login screen:
+
+- Username: `demo@pulseboard.com`
+- Password: `Demo@123`
+
+This is a sample login flow for portfolio demonstration only (not production authentication).
+
+### Demo login and navigation guide
+
+1. Open the **PulseBoard Live Demo** link.
+2. Log in with the demo credentials listed above.
+3. Start in **Overview** to see top-level metrics and charts.
+4. Open **Users** to review the searchable member list and status updates.
+5. Open **Reports** to try saved filters and export interactions.
+6. Open **Settings** to view organization, billing, and audit controls.
+7. Use the **workspace switcher** (tenant switch) to see how data context changes per organization.
+
+### Suggested demo path (2-3 minutes)
+
+- `Overview` -> quick health check of KPIs and charts.
+- `Users` -> search for a user and update status.
+- `Reports` -> apply a filter and open export.
+- `Settings` -> review org settings and billing section.
+- Switch workspace once to demonstrate multi-tenant behavior.
+
+### Screenshots
+
+Quick visual tour of the demo:
+
+![Login Screen](docs/screenshots/login.png)
+![Overview dashboard](docs/screenshots/overview-dashboard.png)
+![Users management](docs/screenshots/users-management.png)
+![Reports filters and export](docs/screenshots/reports-filters.png)
+![Settings and billing](docs/screenshots/settings-billings.png)
+
+### What to look for as a reviewer
+
+- **Micro frontend architecture:** shell app + independently deployed domain modules.
+- **Role-based UX controls:** menu and route access change by user role/permissions.
+- **Multi-tenant behavior:** workspace switch updates org context and module data scope.
+
 ## Problem statement
 Traditional single-frontend dashboards become hard to scale when multiple teams own different domains. This project demonstrates module ownership boundaries, tenant-safe data access, and role-based UI constraints while maintaining a cohesive UX.
 
