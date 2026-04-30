@@ -1,4 +1,5 @@
 # PulseBoard - Multi-tenant Analytics Dashboard
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-pulseboard--shell--app.vercel.app-blue)](https://pulseboard-shell-app.vercel.app/overview)
 
 ## Project overview
 PulseBoard is a React + TypeScript micro frontend dashboard that models how multi-tenant SaaS products are built in production. The shell app owns auth, routing, and workspace context while domain MFEs (overview, users, reports, settings) are independently deployable.
@@ -202,3 +203,5 @@ An example template is available at `apps/shell-app/.env.example`.
 - Share only the `shell-app` URL for demos.
 - Keep all 4 MFEs deployed and reachable at their `remoteEntry.js` URLs.
 - Shell handles routing and lazy loading of each remote module.
+
+Built by [Anshul Khare](https://anshulkhare.dev) · [anshulkhare.dev](https://anshulkhare.dev)
